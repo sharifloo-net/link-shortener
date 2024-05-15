@@ -34,7 +34,10 @@ class urlContr extends url
     private function isUrlExists()
     {
         $url = $this->checkUrl($this->originalUrl);
-        if ($url) return $url;
+        if ($url) {
+            $this->shortenedUrl = $url;
+            return $url;
+        }
         return false;
     }
 }
