@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="themes/default/css/style.css">
 </head>
 <body>
-<form action="" method="post">
+<form action="includes/url.inc.php" method="post">
     <input type="text" name="url" placeholder="لینک را وارد کنید">
     <input type="submit" value="کوتاه کن" name="shorten">
 </form>
