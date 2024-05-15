@@ -1,5 +1,4 @@
 <?php
-
 class url extends dbh
 {
     protected function setUrl($originalUrl, $shortenedUrl)
@@ -8,12 +7,12 @@ class url extends dbh
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$originalUrl, $shortenedUrl]);
     }
-
     protected function checkUrl($originalUrl)
     {
-        $sql = 'SELECT originalUrl, shortenedUrl FROM url WHERE originalUrl = ?';
+        $sql = 'SELECT originalUrl FROM url WHERE originalUrl = ?';
         $stmt = $this->connect()->prepare($sql);
-        if (!$stmt->execute([$originalUrl])) {
+        if (!$stmt->execute([$originalUrl]))
+        {
             $stmt = null;
             header('location: ../?error=stmtFailed');
             exit;
