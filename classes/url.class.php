@@ -2,7 +2,7 @@
 
 class url extends dbh
 {
-    protected function setUrl($originalUrl, $shortenedUrl)
+    protected function insertUrl($originalUrl, $shortenedUrl)
     {
         $sql = 'INSERT INTO url (originalUrl, shortenedUrl) VALUES (?, ?)';
         $stmt = $this->connect()->prepare($sql);
