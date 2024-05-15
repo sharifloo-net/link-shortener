@@ -5,7 +5,7 @@ class dbh
     {
         try {
             $servername = 'localhost';
-            $dbname = 'shortUrl';
+            $dbname = 'link-shortener';
             $username = 'root';
             $password = '//comment!';
             $dsn = "mysql:host=$servername;dbname=$dbname";
