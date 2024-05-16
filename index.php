@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="fa">
 <head>
@@ -13,5 +14,14 @@
     <input type="text" name="url" placeholder="لینک را وارد کنید">
     <input type="submit" value="کوتاه کن" name="shorten">
 </form>
+<?php
+if (isset($_SESSION['shortenedUrl'])) {
+    echo 'shortened URL is: <br>
+    <a href=./' . $_SESSION['shortenedUrl'] . ' target="_blank"> localhost/link-shortener/' . $_SESSION['shortenedUrl'] . '</a>
+    ';
+    unset($_SESSION['shortenedUrl']);
+}
+?>
+
 </body>
 </html>
