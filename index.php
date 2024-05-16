@@ -13,5 +13,14 @@
     <input type="text" name="url" placeholder="لینک را وارد کنید">
     <input type="submit" value="کوتاه کن" name="shorten">
 </form>
+<?php
+// Get the requested endpoint from the URI after URL rewriting
+$requestUri = $_SERVER['REQUEST_URI'];
+$parts = explode('/', $requestUri);
+$endpoint = end($parts);
+
+echo "The user is at: " . $endpoint;
+?>
+
 </body>
 </html>

@@ -11,7 +11,12 @@ if (post('shorten')) {
 
     $url = new urlContr($originalUrl, $shortenedUrl);
     $url->setUrl();
-    header("location: ../?shortenedUrl=http://localhost/$shortenedUrl");
+    $dirPath = __DIR__ . "/../$shortenedUrl";
+    if (!file_exists($dirPath)) {
+        mkdir($dirPath, 0777, true);
+    }
+    header("location: $dirPath");
+//    header("location: ../?shortenedUrl=http://localhost/$shortenedUrl");
 } else {
     header('location: ../');
     exit;
