@@ -16,10 +16,8 @@ class urlContr extends url
             header('location: ../?error=emptyInput');
             exit;
         }
-        if ($this->isUrlExists()) {
-            header("location: ../?error=urlExists&shortenedUrl=$this->shortenedUrl");
-            exit;
-        }
+        if ($this->isUrlExists())
+            return $this->shortenedUrl;
         $this->insertUrl($this->originalUrl, $this->shortenedUrl);
         return $this->shortenedUrl;
     }
