@@ -9,7 +9,7 @@ if (post('login')) {
     require_once '../classes/login.class.php';
     $login = new login($username, $password);
     if ($remember)
-        setcookie('userPass', "$username:$password", time() + 1209600);
+        setcookie('userPass', "$username:$password", time() + 1209600, '/link-shortener/admin');
     else
         $_SESSION['userPass'] = "$username:$password";
     header('location: ../admin/');
