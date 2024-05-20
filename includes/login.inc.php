@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'functions.inc.php';
 if (post('login')) {
     $username = post('username');

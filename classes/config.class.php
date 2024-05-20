@@ -2,5 +2,5 @@
 
 class config
 {
-    protected string $username = 'admin', $password = '1234';
+    protected static string $USERNAME = 'admin', $PASSWORD = '1234';
 }

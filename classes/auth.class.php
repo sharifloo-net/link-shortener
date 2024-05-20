@@ -2,11 +2,14 @@
 
 class auth extends config
 {
+    private string $username = 'admin', $password = '1234';
+
+
     public function __construct(string $userPass)
     {
-        $userPass = explode(':', $userPass);
-        if ($this->username !== $userPass[0] || md5($this->password) !== $userPass[1]) {
-            header('location: ../admin/logout.php');
+        $userPassArr = explode(':', $userPass);
+        if (parent::$USERNAME !== $userPassArr[0] || md5(parent::$PASSWORD) !== $userPassArr[1]) {
+            header('location: logout.php');
             exit;
         }
     }

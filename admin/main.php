@@ -1,9 +1,10 @@
 <?php
-require_once '../classes/auth.class.php';
+session_start();
 if (isset($_SESSION['userPass']) || isset($_COOKIE['userPass'])) {
-    session_start();
+    require_once '../classes/config.class.php';
+    require_once '../classes/auth.class.php';
     $userPass = $_SESSION['userPass'] ?? $_COOKIE['userPass'];
-    new auth($userPass);
+    $auth = new auth($userPass);
 } else {
     header('location: login.php');
     exit;
