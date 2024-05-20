@@ -1,4 +1,5 @@
 <?php
+
 class dbh
 {
     protected function connect()
@@ -8,7 +9,7 @@ class dbh
             $dbname = 'link-shortener';
             $username = 'root';
             $password = '//comment!';
-            $dsn = "mysql:host=$servername;dbname=$dbname";
+            $dsn = "mysql:host=$servername;dbname=$dbname;charset=ut8mb4";
             $pdo = new PDO($dsn, $username, $password);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $pdo;
