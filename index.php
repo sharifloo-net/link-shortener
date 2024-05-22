@@ -8,12 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>کوتاه کننده لینک</title>
     <link rel="stylesheet" href="themes/default/css/style.css">
+    <script type="module" src="themes/default/js/script.js" defer></script>
+    <script src="themes/default/js/sweetalert2.js"></script>
 </head>
 <body>
-<form action="includes/url.inc.php" method="post">
-    <input type="text" name="url" placeholder="لینک را وارد کنید">
-    <input type="submit" value="کوتاه کن" name="shorten">
-</form>
+<div class="Wrapper">
+    <h1 class="Title">کوتاه کننده لینک :)</h1>
+    <form action="includes/url.inc.php" method="post">
+        <div class="Input">
+            <input type="text" name="url" id="input" class="Input-text"
+                   placeholder="https://github.com/sharifloo-net/link-shortener"
+                   spellcheck="false" autocomplete="off">
+            <label for="input" class="Input-label">:)</label>
+        </div>
+        <input type="submit" name="shorten" id="btn" value="کوتاه کن">
+    </form>
+</div>
 <?php
 if (isset($_SESSION['shortenedUrl'])) {
     echo 'shortened URL is: <br>
