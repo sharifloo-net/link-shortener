@@ -35,7 +35,12 @@ if (isset($_SESSION['emptyInput'])) {
     unset($_SESSION['emptyInput']);
 } elseif (isset($_SESSION['graterThanMaxLength'])) {
     $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۵۰۰ کاراکتر است', 'warning');
-    $content .= '<script>window.onload = () => document.querySelector(`.swal2-confirm`).focus();</script>';
+    $content .= '<script>
+            window.onload = () => {
+                document.querySelector(`.swal2-confirm`).focus();
+                document.body.classList.remove(`swal2-height-auto`);
+            }
+        </script>';
     unset($_SESSION['graterThanMaxLength']);
 } elseif (isset($_SESSION['shortenedUrl'])) {
     $content .= '<h2>shortened URL is:</h2><br>
