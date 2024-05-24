@@ -29,15 +29,16 @@ session_start();
 </div>
 <?php
 $alert = '';
+$content = '';
 if (isset($_SESSION['emptyInput'])) {
     $alert = alert('فیلد خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
     unset($_SESSION['emptyInput']);
 } elseif (isset($_SESSION['graterThanMaxLength'])) {
     $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۵۰۰ کاراکتر است', 'warning');
-    echo '<script>window.onload = () => document.querySelector(`.swal2-confirm`).focus();</script>';
+    $content .= '<script>window.onload = () => document.querySelector(`.swal2-confirm`).focus();</script>';
     unset($_SESSION['graterThanMaxLength']);
 } elseif (isset($_SESSION['shortenedUrl'])) {
-    echo '<h2>shortened URL is:</h2><br>
+    $content .= '<h2>shortened URL is:</h2><br>
     <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank"><div class="Input">
             <input type="text" disabled class="Input-text"
                    spellcheck="false" autocomplete="off" value="' . $_SESSION['shortenedUrl'] . '">
@@ -47,7 +48,7 @@ if (isset($_SESSION['emptyInput'])) {
     $alert = alert('لینک ایجاد شد‌ :)', 'لینک کوتاه با موفقیت ایجاد شد');
     unset($_SESSION['shortenedUrl']);
 }
-echo $alert;
+echo $alert . $content;
 ?>
 
 </body>
