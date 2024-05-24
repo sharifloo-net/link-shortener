@@ -13,7 +13,9 @@ class urlContr extends url
     public function setUrl()
     {
         if ($this->emptyInput()) {
-            header('location: ../?error=emptyInput');
+            session_start();
+            $_SESSION['emptyInput'] = 1;
+            header('location: ../');
             exit;
         }
         if ($this->isUrlExists())

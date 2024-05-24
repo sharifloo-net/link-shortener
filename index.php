@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+require_once 'includes/functions.inc.php';
+session_start();
+?>
 <!doctype html>
 <html lang="fa">
 <head>
@@ -25,10 +28,18 @@
     </form>
 </div>
 <?php
-if (isset($_SESSION['shortenedUrl'])) {
-    echo 'shortened URL is: <br>
+if (isset($_SESSION['emptyInput'])) {
+    echo alert('فید خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
+    unset($_SESSION['emptyInput']);
+} elseif (isset($_SESSION['shortenedUrl'])) {
+    echo '<h2>shortened URL is:</h2><br>
+    <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank"><div class="Input">
+            <input type="text" disabled class="Input-text"
+                   spellcheck="false" autocomplete="off" value="' . $_SESSION['shortenedUrl'] . '">
+    </div
     <a href=./' . $_SESSION['shortenedUrl'] . ' target="_blank"> localhost/link-shortener/' . $_SESSION['shortenedUrl'] . '</a>
     ';
+    echo alert('لینک ایجاد شد‌ :)', 'لینک کوتاه با موفقیت ایجاد شد');
     unset($_SESSION['shortenedUrl']);
 }
 ?>
