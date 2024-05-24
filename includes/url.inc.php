@@ -12,8 +12,6 @@ if (post('shorten')) {
     $shortenedUrl = $url->setUrl();
     $_SESSION['shortenedUrl'] = $shortenedUrl;
     header('location: ../');
-//    header("location: $dirPath");
-//    header("location: ../?shortenedUrl=http://localhost/$shortenedUrl");
 } else {
     header('location: ../');
     exit;
