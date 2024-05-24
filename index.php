@@ -30,7 +30,7 @@ session_start();
 <?php
 $alert = '';
 if (isset($_SESSION['emptyInput'])) {
-    $alert = alert('فید خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
+    $alert = alert('فیلد خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
     unset($_SESSION['emptyInput']);
 } elseif (isset($_SESSION['graterThanMaxLength'])) {
     $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۵۰۰ کاراکتر است', 'warning');
