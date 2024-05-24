@@ -3,7 +3,7 @@ const input = document.querySelector('#input');
 input.focus();
 
 document.querySelector('#btn').onclick = () => {
-    if (input.value) {
+    if (!input.value) {
         Swal.fire({
             title: 'فیلد خالی است!',
             text: 'لطفا یک لینک وارد کنید',
