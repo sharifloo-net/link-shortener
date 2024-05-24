@@ -13,10 +13,10 @@ function alert(string $title, string $text, string $icon = 'success', string $co
 {
     return "<script>
         Swal.fire({
-        title: $title,
-        text: $text,
-        icon: $icon,
-        confirmButtonText: $confirmButtonText,
+            title: '$title',
+            text: '$text',
+            icon: '$icon',
+            confirmButtonText: '$confirmButtonText'
         })
     </script>";
 }

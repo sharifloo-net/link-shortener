@@ -28,9 +28,13 @@ session_start();
     </form>
 </div>
 <?php
+$alert = '';
 if (isset($_SESSION['emptyInput'])) {
-    echo alert('فید خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
+    $alert = alert('فید خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
     unset($_SESSION['emptyInput']);
+} elseif (isset($_SESSION['graterThanMaxLength'])) {
+    $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۵۰۰ کاراکتر است', 'warning');
+    unset($_SESSION['graterThanMaxLength']);
 } elseif (isset($_SESSION['shortenedUrl'])) {
     echo '<h2>shortened URL is:</h2><br>
     <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank"><div class="Input">
@@ -39,9 +43,10 @@ if (isset($_SESSION['emptyInput'])) {
     </div
     <a href=./' . $_SESSION['shortenedUrl'] . ' target="_blank"> localhost/link-shortener/' . $_SESSION['shortenedUrl'] . '</a>
     ';
-    echo alert('لینک ایجاد شد‌ :)', 'لینک کوتاه با موفقیت ایجاد شد');
+    $alert = alert('لینک ایجاد شد‌ :)', 'لینک کوتاه با موفقیت ایجاد شد');
     unset($_SESSION['shortenedUrl']);
 }
+echo $alert;
 ?>
 
 </body>

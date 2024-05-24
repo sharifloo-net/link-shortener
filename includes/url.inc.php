@@ -4,7 +4,11 @@ require_once 'functions.inc.php';
 if (post('shorten')) {
     $originalUrl = post('url');
     $shortenedUrl = $rand = substr(md5(microtime()), rand(0, 26), 5);
-
+    if (count_chars($originalUrl) > 500) {
+        $_SESSION['graterThanMaxLength'] = 1;
+        header('location: ../');
+        exit;
+    }
     require_once '../classes/dbh.class.php';
     require_once '../classes/url.class.php';
     require_once '../classes/urlContr.class.php';
