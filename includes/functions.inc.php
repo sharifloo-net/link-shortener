@@ -17,6 +17,6 @@ function alert(string $title, string $text, string $icon = 'success', string $co
             text: '$text',
             icon: '$icon',
             confirmButtonText: '$confirmButtonText'
-        })
+        });
     </script>";
 }
