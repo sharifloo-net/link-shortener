@@ -43,18 +43,19 @@ if (isset($_SESSION['emptyInput'])) {
         </script>';
     unset($_SESSION['graterThanMaxLength']);
 } elseif (isset($_SESSION['shortenedUrl'])) {
-    $content .= '<h2>shortened URL is:</h2><br>
-    <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank"><div class="Input">
-            <input type="text" disabled class="Input-text"
+    $content .= '<div id="shortened-link-container">
+    <h2>لینک کوتاه شده:</h2><br>
+    <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank">
+        <div class="Input">
+            <input type="button" class="Input-text" id="shortened-link"
                    spellcheck="false" autocomplete="off" value="' . $_SESSION['shortenedUrl'] . '">
-    </div
-    <a href=./' . $_SESSION['shortenedUrl'] . ' target="_blank"> localhost/link-shortener/' . $_SESSION['shortenedUrl'] . '</a>
-    ';
+        </div
+    </a>
+</div>';
     $alert = alert('لینک ایجاد شد‌ :)', 'لینک کوتاه با موفقیت ایجاد شد');
     unset($_SESSION['shortenedUrl']);
 }
 echo $alert . $content;
 ?>
-
 </body>
 </html>

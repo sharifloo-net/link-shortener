@@ -60,9 +60,15 @@ html {
     font-size: 10px;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     direction: rtl;
     display: flex;
+    flex-direction: column;
+    gap: 4rem;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -74,8 +80,11 @@ body {
 }
 
 .Wrapper {
-    flex: 0 0 80%;
-    max-width: 80%;
+    position: absolute;
+    top: 20%;
+    /*flex: 0 0 55%;*/
+    /*max-width: 80%;*/
+    width: 80%;
 }
 
 .Title {
@@ -199,4 +208,26 @@ form {
     border-radius: .25rem;
     color: #fff;
     font-weight: 700;
+}
+
+#shortened-link {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#shortened-link:hover {
+    transform: scale(1.05);
+    transition: all 0.5s;
+    background-color: #E9E9ED;
+}
+
+#shortened-link-container {
+    position: absolute;
+    top: 50rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: #fff;
+    text-shadow: -0.1rem 0.1rem 0.2rem var(--colorPrimary800);
+    font-size: 15px;
 }
