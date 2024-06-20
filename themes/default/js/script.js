@@ -16,3 +16,7 @@ document.querySelector('#btn').onclick = () => {
         return false;
     }
 }
+try {
+    document.querySelector('.swal2-confirm').focus();
+} catch {
+}
