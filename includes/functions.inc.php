@@ -9,7 +9,7 @@ function get($gotVal): string|null
     return $_GET[$gotVal] ?? null;
 }
 
-function alert(string $title, string $text, string $icon = 'success', string $confirmButtonText = 'باشه')
+function alert(string $title, string $text, string $icon = 'success', string $confirmButtonText = 'باشه'): string
 {
     return "<script>
         Swal.fire({
