@@ -48,7 +48,7 @@ if (isset($_SESSION['emptyInput'])) {
     <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank">
         <div class="Input">
             <input type="button" class="Input-text" id="shortened-link"
-                   spellcheck="false" autocomplete="off" value="' . $_SESSION['shortenedUrl'] . '">
+                   spellcheck="false" autocomplete="off" value="https://localhost/link-shortener/' . $_SESSION['shortenedUrl'] . '">
         </div
     </a>
 </div>';
