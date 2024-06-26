@@ -12,6 +12,7 @@ if (post('login')) {
         setcookie('userPass', "$username:$password", time() + 1209600, '/link-shortener/admin');
     else
         $_SESSION['userPass'] = "$username:$password";
+    $_SESSION['firstLogin'] = true;
     header('location: ../admin/');
 } else {
     header('location: ../admin/login.php');
