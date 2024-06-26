@@ -1,5 +1,5 @@
 const $ = document,
-    select = (item) => $.querySelector(item),
+    select = (selectors) => $.querySelector(selectors),
     username = select('#login__username');
 username.focus();
 select('#login-btn').onclick = () => {
