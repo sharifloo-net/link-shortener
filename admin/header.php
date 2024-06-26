@@ -7,4 +7,4 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin panel</title>
 </head>
-<body>
+<body class="align">
