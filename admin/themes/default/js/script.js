@@ -16,3 +16,7 @@ select('#login-btn').onclick = () => {
         return false;
     }
 }
+try {
+    select('.swal2-confirm').focus();
+} catch {
+}
