@@ -25,7 +25,7 @@ require_once 'header.php';
                 <input id="login__password" type="password" name="password" class="form__input" placeholder="password">
             </div>
             <div class="form__field">
-                <label><input id="remember" type="checkbox" name="password" class="form__input">مرا به خاطر
+                <label><input id="remember" type="checkbox" name="remember" class="form__input">مرا به خاطر
                     بسپار</label>
             </div>
             <div class="form__field">
