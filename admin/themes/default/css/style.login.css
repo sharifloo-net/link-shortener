@@ -12,6 +12,10 @@
     --baseColor: #606468;
 }
 
+.ltr {
+    direction: ltr;
+}
+
 .align {
     display: grid;
     place-items: center;

@@ -3,15 +3,10 @@ require_once 'main.php';
 require_once 'header.php'
 ?>
     <link rel="stylesheet" href="themes/default/css/style.login.css">
-    <style>
-        body {
-            direction: ltr;
-        }
-    </style>
     <div class="grid">
         <h1 id="login-h1">پنل ادمین</h1>
         <form action="../includes/login.inc.php" method="post" class="form login">
-            <div class="form__field font-family-comfortaa">
+            <div class="form__field font-family-comfortaa ltr">
                 <label for="login__username">
                     <svg class="icon">
                         <use xlink:href="#icon-user"></use>
@@ -20,13 +15,17 @@ require_once 'header.php'
                 <input autocomplete="username" id="login__username" type="text" name="username" class="form__input"
                        placeholder="username">
             </div>
-            <div class="form__field font-family-comfortaa">
+            <div class="form__field font-family-comfortaa ltr">
                 <label for="login__password">
                     <svg class="icon">
                         <use xlink:href="#icon-lock"></use>
                     </svg>
                     <span class="hidden">password</span></label>
                 <input id="login__password" type="password" name="password" class="form__input" placeholder="password">
+            </div>
+            <div class="form__field">
+                <label><input id="remember" type="checkbox" name="password" class="form__input">مرا به خاطر
+                    بسپار</label>
             </div>
             <div class="form__field">
                 <input type="submit" name="login" id="login-btn" value="ورود">
