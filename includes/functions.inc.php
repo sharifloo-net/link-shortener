@@ -20,3 +20,8 @@ function alert(string $title, string $text, string $icon = 'success', string $co
         });
     </script>";
 }
+
+function isItInAdminPanel(bool $isInAdminPanel, string $ifItIs, string $ifItIsNot): string
+{
+    return $isInAdminPanel ? $ifItIs : $ifItIsNot;
+}
