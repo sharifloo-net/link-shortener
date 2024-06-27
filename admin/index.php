@@ -7,8 +7,11 @@ if (isset($_SESSION['firstLogin'])) {
     unset($_SESSION['firstLogin']);
 }
 ?>
-    <h1>Welcome dear admin :)</h1>
-    [<a href="customUrl.php">Add a custom shortened link</a>]
+    <form action="../includes/customUrl.inc.php" method="post">
+        <input type="text" name="originalUrl" placeholder="original link"><br><br>
+        <input type="text" name="customShortenedUrl" placeholder="shortened link"><br><br>
+        <input type="submit" value="Add a custom link" name="customUrl">
+    </form>
     <br><br>
     [<a href="logout.php">Logout</a>]
 <?php require_once 'footer.php' ?>
