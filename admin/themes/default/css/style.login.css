@@ -16,10 +16,10 @@
     direction: ltr;
 }
 
-.align {
-    display: grid;
-    place-items: center;
-}
+/*.align {*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*}*/
 
 .grid {
     inline-size: 90%;
