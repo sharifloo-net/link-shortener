@@ -2,7 +2,7 @@
 require_once 'main.php';
 require_once '../includes/functions.inc.php';
 $title = 'ورود به پنل مدیریت';
-require_once 'header.php';
+require_once '../header.php';
 ?>
 <link rel="stylesheet" href="themes/default/css/style.login.css">
 <div class="grid">
