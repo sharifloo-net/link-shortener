@@ -6,7 +6,7 @@ if (isset($_SESSION['firstLogin'])) {
     unset($_SESSION['firstLogin']);
 }
 $title = 'کوتاه‌کننده سفارشی | پنل مدیریت';
-require_once '../body.php';
+require_once 'body.php';
 ?>
     <!--    <input type="text" name="originalUrl" placeholder="original link"><br><br>-->
-<?php require_once '../footer.php' ?>
+<?php require_once 'footer.php' ?>
