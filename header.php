@@ -8,7 +8,7 @@
     <title><?php echo $title ?></title>
     <link rel="stylesheet"
           href="<?php echo str_contains($_SERVER['REQUEST_URI'], 'admin') ? '../' : ''; ?>themes/default/css/style.css">
-    <script src="admin/themes/default/js/script.js" defer></script>
-    <script src="admin/themes/default/js/sweetalert2.js"></script>
+    <script src="themes/default/js/script.js" defer></script>
+    <script src="themes/default/js/sweetalert2.js"></script>
 </head>
 <body>
