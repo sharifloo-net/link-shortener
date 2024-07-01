@@ -8,5 +8,8 @@ if (isset($_SESSION['firstLogin'])) {
 $title = 'کوتاه‌کننده سفارشی | پنل مدیریت';
 require_once '../body.php';
 ?>
-    <!--    <input type="text" name="originalUrl" placeholder="original link"><br><br>-->
+<input type="text" name="originalUrl" id="input" class="Input-text"
+       placeholder="https://github.com/sharifloo-net/link-shortener"
+       spellcheck="false" autocomplete="off">
+<label for="input" class="Input-label">:)</label>
 <?php require_once '../footer.php' ?>
