@@ -4,7 +4,11 @@ require_once 'functions.inc.php';
 if (post('customUrl')) {
     $originalUrl = post('originalUrl');
     $customShortenedUrl = post('customShortenedUrl');
-
+    if (strlen($originalUrl) > 500) {
+        $_SESSION['graterThanMaxLength'] = 1;
+        header('location: ../admin');
+        exit;
+    }
     require_once '../classes/dbh.class.php';
     require_once '../classes/customUrl.class.php';
     require_once '../classes/customUrlContr.class.php';
