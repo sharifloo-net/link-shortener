@@ -32,7 +32,7 @@ class customUrlContr extends customUrl
 
     private function isOriginalUrlExists()
     {
-        $url = $this->checkUrl($this->originalUrl);
+        $url = $this->checkOriginalUrl($this->originalUrl);
         if ($url) {
             $this->shortenedUrl = $url;
             return $url;

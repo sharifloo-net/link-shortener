@@ -9,7 +9,7 @@ class customUrl extends dbh
         $stmt->execute([$originalUrl, $shortenedUrl]);
     }
 
-    protected function checkUrl($originalUrl)
+    protected function checkOriginalUrl($originalUrl)
     {
         $sql = 'SELECT shortenedUrl FROM url WHERE originalUrl = ?';
         $stmt = $this->connect()->prepare($sql);
