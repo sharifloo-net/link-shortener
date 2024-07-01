@@ -1,9 +1,11 @@
-<input type="text" name="url" id="input" class="Input-text"
+<input type="text" name="<?php echo isItInAdminPanel($isInAdminPanel, 'customShortenedUrl', 'url') ?>" id="input"
+       class="Input-text"
        placeholder="<?php echo isItInAdminPanel($isInAdminPanel, 'عنوان کوتاه شده لینک', 'https://github.com/sharifloo-net/link-shortener') ?>"
        spellcheck="false" autocomplete="off">
 <label for="input" class="Input-label">:)</label>
 </div>
-<input type="submit" name="shorten" id="btn" value="کوتاه کن">
+<input type="submit" name="<?php echo isItInAdminPanel($isInAdminPanel, 'customUrl', 'shorten') ?>" id="btn"
+       value="کوتاه کن">
 </form>
 </div>
 <?php
