@@ -17,8 +17,13 @@ class customUrlContr extends customUrl
             header('location: ../admin');
             exit;
         }
-        if ($this->isOriginalUrlExists())
-            return $this->shortenedUrl;
+        if ($this->isOriginalUrlExists() && $this->isShortenedURlExists())
+            return $this->originalUrl;
+        if ($this->isShortenedURlExists()) {
+            $_SESSION['customShortenedUrlExists'] = 1;
+            header('location: ../admin');
+            exit;
+        }
         $this->insertUrl($this->originalUrl, $this->shortenedUrl);
         return $this->shortenedUrl;
     }
@@ -32,11 +37,11 @@ class customUrlContr extends customUrl
 
     private function isOriginalUrlExists()
     {
-        $url = $this->checkOriginalUrl($this->originalUrl);
-        if ($url) {
-            $this->shortenedUrl = $url;
-            return $url;
-        }
-        return false;
+        return $this->checkOriginalUrl($this->originalUrl);
+    }
+
+    private function isShortenedURlExists()
+    {
+        return $this->checkShortenedUrl($this->shortenedUrl);
     }
 }

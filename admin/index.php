@@ -12,4 +12,10 @@ require_once '../body.php';
        placeholder="https://github.com/sharifloo-net/link-shortener"
        spellcheck="false" autocomplete="off">
 <label for="input" class="Input-label">:)</label>
-<?php require_once '../footer.php' ?>
+<?php
+require_once '../footer.php';
+if (isset($_SESSION['customShortenedUrlExists'])) {
+    echo alert('لینک کوتاه شده رزرو شده است!', 'عنوان لینک کوتاه شده برای لینک دیگری رزور شده است! لطفا از عنوان دیگری استفاده کنید.', 'warning');
+    unset($_SESSION['customShortenedUrlExists']);
+}
+?>
