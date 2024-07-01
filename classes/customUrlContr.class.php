@@ -18,7 +18,7 @@ class customUrlContr extends customUrl
             exit;
         }
         if ($this->isOriginalUrlExists() && $this->isShortenedURlExists())
-            return $this->originalUrl;
+            return $this->shortenedUrl;
         if ($this->isShortenedURlExists()) {
             $_SESSION['customShortenedUrlExists'] = 1;
             header('location: ../admin');
