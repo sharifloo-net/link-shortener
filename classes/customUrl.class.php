@@ -15,7 +15,7 @@ class customUrl extends dbh
         $stmt = $this->connect()->prepare($sql);
         if (!$stmt->execute([$originalUrl])) {
             $stmt = null;
-            header('location: ../admin/customUrl.php?error=stmtFailed');
+            header('location: ../admin/?error=stmtFailed');
             exit;
         }
         $urlData = $stmt->fetchAll();

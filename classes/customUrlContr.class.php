@@ -13,7 +13,7 @@ class customUrlContr extends customUrl
     public function setUrl()
     {
         if ($this->emptyInput()) {
-            header('location: ../admin/customUrl.php?error=emptyInput');
+            header('location: ../admin/?error=emptyInput');
             exit;
         }
         if ($this->isUrlExists())

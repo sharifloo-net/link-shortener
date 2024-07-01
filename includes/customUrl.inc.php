@@ -11,8 +11,8 @@ if (post('customUrl')) {
     $customUrl = new customUrlContr($originalUrl, $customShortenedUrl);
     $customShortenedUrl = $customUrl->setUrl();
     $_SESSION['shortenedUrl'] = $customShortenedUrl;
-    header('location: ../admin/customUrl.php');
+    header('location: ../admin/');
 } else {
-    header('location: ../admin/customUrl.php');
+    header('location: ../admin/');
     exit;
 }

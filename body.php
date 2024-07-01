@@ -7,6 +7,6 @@ require_once 'header.php';
 ?>
 <div class="Wrapper">
     <h1 class="Title"> <?php echo isItInAdminPanel($isInAdminPanel, 'کوتاه کننده سفارشی لینک :)', 'کوتاه کننده لینک :)') ?></h1>
-    <form action="<?php echo isItInAdminPanel($isInAdminPanel, '../includes/customUrl.inc.php', 'includes/url.inc.php') ?>"
+    <form action="<?php echo isItInAdminPanel($isInAdminPanel, 'includes/customUrl.inc.php', 'includes/url.inc.php') ?>"
           method="post" <?php echo isItInAdminPanel($isInAdminPanel, 'style="grid-template-rows: 2.6fr 1fr !important;"', '') ?>>
         <div class="Input">
