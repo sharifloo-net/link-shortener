@@ -26,7 +26,7 @@ if (isset($_SESSION['emptyInput'])) {
 } elseif (isset($_SESSION['shortenedUrl'])) {
     $content .= '<div id="shortened-link-container">
     <h2>لینک کوتاه شده:</h2><br>
-    <a href="' . $_SESSION['shortenedUrl'] . '" target="_blank">
+    <a href="' . isItInAdminPanel($isInAdminPanel, '../', '') . $_SESSION['shortenedUrl'] . '" target="_blank">
         <div class="Input">
             <input type="button" class="Input-text" id="shortened-link"
                    spellcheck="false" autocomplete="off" value="https://localhost/link-shortener/' . $_SESSION['shortenedUrl'] . '">
