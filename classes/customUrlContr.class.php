@@ -17,7 +17,7 @@ class customUrlContr extends customUrl
             header('location: ../admin');
             exit;
         }
-        if ($this->isUrlExists())
+        if ($this->isOriginalUrlExists())
             return $this->shortenedUrl;
         $this->insertUrl($this->originalUrl, $this->shortenedUrl);
         return $this->shortenedUrl;
@@ -30,7 +30,7 @@ class customUrlContr extends customUrl
         return false;
     }
 
-    private function isUrlExists()
+    private function isOriginalUrlExists()
     {
         $url = $this->checkUrl($this->originalUrl);
         if ($url) {
