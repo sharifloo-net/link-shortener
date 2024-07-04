@@ -14,6 +14,9 @@ $content = '';
 if (isset($_SESSION['emptyInput'])) {
     $alert = alert('فیلد خالی است!', 'لطفا یک لینک وارد کنید', 'warning');
     unset($_SESSION['emptyInput']);
+} elseif (isset($_SESSION['originalUrlInvalid'])) {
+    $alert = alert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
+    unset($_SESSION['originalUrlInvalid']);
 } elseif (isset($_SESSION['graterThanMaxLength'])) {
     $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۵۰۰ کاراکتر است', 'warning');
     $content .= '<script>

@@ -18,6 +18,12 @@ class urlContr extends url
             header('location: ../');
             exit;
         }
+        if (!$this->isUrlValid()) {
+            session_start();
+            $_SESSION['originalUrlInvalid'] = 1;
+            header('location: ../');
+            exit;
+        }
         if ($this->isUrlExists())
             return $this->shortenedUrl;
         $this->insertUrl($this->originalUrl, $this->shortenedUrl);
@@ -29,6 +35,14 @@ class urlContr extends url
         if (empty($this->originalUrl) || empty($this->shortenedUrl))
             return true;
         return false;
+    }
+
+    private function isUrlValid(): bool
+    {
+        $urlLowerCase = $this->originalUrl;
+        if (!str_starts_with($urlLowerCase, 'http://') && !str_starts_with($urlLowerCase, 'https://'))
+            $this->originalUrl = 'https://' . $this->originalUrl;
+        return (bool)filter_var($this->originalUrl, FILTER_VALIDATE_URL);
     }
 
     private function isUrlExists()
