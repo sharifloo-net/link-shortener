@@ -1,15 +1,18 @@
-const input = document.querySelector('#input');
+const input = document.querySelector('#input'),
+    swAlert = (title, text, icon = 'success', confirm = 'باشه') => {
+        return Swal.fire({
+            title: title,
+            text: text,
+            icon: icon,
+            confirmButtonText: confirm
+        });
+    };
 
 input.focus();
 
 document.querySelector('#btn').onclick = () => {
     if (!input.value) {
-        Swal.fire({
-            title: 'فیلد خالی است!',
-            text: 'لطفا یک لینک وارد کنید',
-            icon: 'warning',
-            confirmButtonText: 'باشه'
-        });
+        swAlert('فیلد خالی است!', 'لطفا یک لینک وارد کنید.', 'warning');
 
         // sweetalert2 config. (for keeping body height 100%)
         document.body.classList.remove('swal2-height-auto');
