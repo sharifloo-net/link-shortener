@@ -1,20 +1,23 @@
 const $ = document,
-    select = (selectors) => $.querySelector(selectors),
-    username = select('#login__username');
-username.focus();
-select('#login-btn').onclick = () => {
-    if (!username.value || !select('#login__password').value) {
-        Swal.fire({
-            title: 'فیلد خالی است!',
-            text: 'لطفا نام‌کاربری و گذرواژه را وارد کنید.',
-            icon: 'warning',
-            confirmButtonText: 'باشه'
-        });
+    select = (selectors) => $.querySelector(selectors);
+try {
+    const username = select('#login__username');
+    username.focus();
+    select('#login-btn').onclick = () => {
+        if (!username.value || !select('#login__password').value) {
+            Swal.fire({
+                title: 'فیلد خالی است!',
+                text: 'لطفا نام‌کاربری و گذرواژه را وارد کنید.',
+                icon: 'warning',
+                confirmButtonText: 'باشه'
+            });
 
-        // sweetalert2 config. (for keeping body height 100%)
-        $.body.classList.remove('swal2-height-auto');
-        return false;
+            // sweetalert2 config. (for keeping body height 100%)
+            $.body.classList.remove('swal2-height-auto');
+            return false;
+        }
     }
+} catch {
 }
 try {
     select('.swal2-confirm').focus();
