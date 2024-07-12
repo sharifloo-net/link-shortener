@@ -4,7 +4,7 @@ require_once 'functions.inc.php';
 if (post('shorten')) {
     $originalUrl = post('url');
     $shortenedUrl = $rand = substr(md5(microtime()), rand(0, 26), 5);
-    if (strlen($originalUrl) > 500) {
+    if (strlen($originalUrl) > 1000) {
         $_SESSION['graterThanMaxLength'] = 1;
         header('location: ../');
         exit;

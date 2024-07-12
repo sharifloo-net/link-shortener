@@ -18,7 +18,7 @@ if (isset($_SESSION['emptyInput'])) {
     $alert = alert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
     unset($_SESSION['originalUrlInvalid']);
 } elseif (isset($_SESSION['graterThanMaxLength'])) {
-    $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۵۰۰ کاراکتر است', 'warning');
+    $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک، ۱۰۰۰ کاراکتر است', 'warning');
     $content .= '<script>
             window.onload = () => {
                 document.querySelector(`.swal2-confirm`).focus();
