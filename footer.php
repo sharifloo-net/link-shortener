@@ -26,6 +26,15 @@ if (isset($_SESSION['emptyInput'])) {
             }
         </script>';
     unset($_SESSION['graterThanMaxLength']);
+} elseif (isset($_SESSION['graterThanMaxLengthCustomUrl'])) {
+    $alert = alert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک کوتاه شده ۱۰۰ کاراکتر است.', 'warning');
+    $content .= '<script>
+            window.onload = () => {
+                document.querySelector(`.swal2-confirm`).focus();
+                document.body.classList.remove(`swal2-height-auto`);
+            }
+        </script>';
+    unset($_SESSION['graterThanMaxLengthCustomUrl']);
 } elseif (isset($_SESSION['shortenedUrl'])) {
     $content .= '<div id="shortened-link-container">
     <h2>لینک کوتاه شده:</h2><br>
