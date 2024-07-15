@@ -18,6 +18,10 @@ document.querySelector('#btn').onclick = () => {
         document.body.classList.remove('swal2-height-auto');
         return false;
     }
+    if (input.value.length > 1000) {
+        swAlert('مقدار بیش از حد مجاز!', 'حداکثر طول لینک ۱۰۰۰ کاراکتر است. ', 'warning');
+        return false;
+    }
 }
 try {
     document.querySelector('.swal2-confirm').focus();
