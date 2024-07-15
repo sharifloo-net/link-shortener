@@ -23,6 +23,15 @@ try {
 } catch {
 }
 try {
+    select('#btn').onclick = () => {
+        if (!select('#originalUrlInput').value || !select('#input').value) {
+            swAlert('فیلد خالی است!', 'لطفا همه فیلدها را پر کنید.', 'warning');
+            return false;
+        }
+    }
+} catch {
+}
+try {
     select('.swal2-confirm').focus();
 } catch {
 }
