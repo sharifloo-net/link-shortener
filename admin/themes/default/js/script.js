@@ -23,9 +23,18 @@ try {
 } catch {
 }
 try {
+    const originalUrl = select('#originalUrlInput'), customShortenedUrl = select('#input');
     select('#btn').onclick = () => {
-        if (!select('#originalUrlInput').value || !select('#input').value) {
+        if (!originalUrl.value || !customShortenedUrl.value) {
             swAlert('فیلد خالی است!', 'لطفا همه فیلدها را پر کنید.', 'warning');
+            return false;
+        }
+        if (originalUrl.value.length > 1000) {
+            swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک ۱۰۰۰ کاراکتر است.', 'warning');
+            return false;
+        }
+        if (customShortenedUrl.value.length > 100) {
+            swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک کوتاه شده ۱۰۰ کاراکتر است.', 'warning');
             return false;
         }
     }
