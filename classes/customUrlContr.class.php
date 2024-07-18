@@ -24,6 +24,16 @@ class customUrlContr extends customUrl
             header('location: ../admin');
             exit;
         }
+        if (!$this->isOriginalUrlValid()) {
+            $_SESSION['originalUrlInvalid'] = 1;
+            header('location: ../admin');
+            exit;
+        }
+        if (!$this->isShortenedUrlValid()) {
+            $_SESSION['customShortenedUrlInvalid'] = 1;
+            header('location: ../admin');
+            exit;
+        }
         $this->insertUrl($this->originalUrl, $this->shortenedUrl);
         return $this->shortenedUrl;
     }
@@ -43,5 +53,18 @@ class customUrlContr extends customUrl
     private function isShortenedURlExists()
     {
         return $this->checkShortenedUrl($this->shortenedUrl);
+    }
+
+    private function isOriginalUrlValid(): bool
+    {
+        $urlLowerCase = strtolower($this->originalUrl);
+        if (!str_starts_with($urlLowerCase, 'http://') && !str_starts_with($urlLowerCase, 'https://'))
+            $this->originalUrl = 'https://' . $this->originalUrl;
+        return (bool)filter_var($this->originalUrl, FILTER_VALIDATE_URL);
+    }
+
+    private function isShortenedUrlValid(): bool
+    {
+        return (bool)preg_match('/^[a-zA-z0-9]{3,100}$/', $this->shortenedUrl);
     }
 }
