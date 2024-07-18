@@ -48,7 +48,7 @@ if (isset($_SESSION['emptyInput'])) {
     $alert = alert('لینک ایجاد شد‌ :)', 'لینک کوتاه با موفقیت ایجاد شد');
     unset($_SESSION['shortenedUrl']);
 }
-echo $alert . $content;
+echo $content;
 ?>
 </body>
 </html>

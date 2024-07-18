@@ -15,10 +15,11 @@ require_once '../body.php';
 <?php
 require_once '../footer.php';
 if (isset($_SESSION['customShortenedUrlInvalid'])) {
-    echo alert('عنوان کوتاه شده معتبر نمی‌باشد!', 'عنوان فقط می‌تواند شامل حروف a تا z و اعداد 0 تا 9 باشد.', 'warning');
+    $alert = alert('عنوان کوتاه شده معتبر نمی‌باشد!', 'عنوان فقط می‌تواند شامل حروف a تا z و اعداد 0 تا 9 باشد.', 'warning');
     unset($_SESSION['customShortenedUrlInvalid']);
 } elseif (isset($_SESSION['customShortenedUrlExists'])) {
-    echo alert('لینک کوتاه شده رزرو شده است!', 'عنوان لینک کوتاه شده برای لینک دیگری رزور شده است! لطفا از عنوان دیگری استفاده کنید.', 'warning');
+    $alert = alert('لینک کوتاه شده رزرو شده است!', 'عنوان لینک کوتاه شده برای لینک دیگری رزور شده است! لطفا از عنوان دیگری استفاده کنید.', 'warning');
     unset($_SESSION['customShortenedUrlExists']);
 }
+echo $alert;
 ?>
