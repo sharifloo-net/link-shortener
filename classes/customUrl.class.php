@@ -19,7 +19,7 @@ class customUrl extends dbh
             exit;
         }
         $urlData = $stmt->fetchAll();
-        if ($stmt->rowCount() > 0) return $urlData[0]['originalUrl'];
+        if ($stmt->rowCount() > 0) return (bool)$urlData[0]['originalUrl'];
         return false;
     }
 
@@ -33,7 +33,7 @@ class customUrl extends dbh
             exit;
         }
         $urlData = $stmt->fetchAll();
-        if ($stmt->rowCount() > 0) return $urlData[0]['shortenedUrl'];
+        if ($stmt->rowCount() > 0) return (bool)$urlData[0]['shortenedUrl'];
         return false;
     }
 }
