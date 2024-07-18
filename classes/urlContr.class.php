@@ -39,7 +39,7 @@ class urlContr extends url
 
     private function isUrlValid(): bool
     {
-        $urlLowerCase = $this->originalUrl;
+        $urlLowerCase = strtolower($this->originalUrl);
         if (!str_starts_with($urlLowerCase, 'http://') && !str_starts_with($urlLowerCase, 'https://'))
             $this->originalUrl = 'https://' . $this->originalUrl;
         return (bool)filter_var($this->originalUrl, FILTER_VALIDATE_URL);
