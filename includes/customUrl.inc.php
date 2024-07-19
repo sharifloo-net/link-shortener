@@ -16,6 +16,16 @@ if (post('customUrl')) {
         header('location: ../admin');
         exit;
     }
+    if ($originalUrlLength < 30) {
+        $_SESSION['lessThanMinLength'] = 1;
+        header('location: ../admin');
+        exit;
+    }
+    if ($customShortenedUrlLength < 3) {
+        $_SESSION['lessThanMinLengthCustomUrl'] = 1;
+        header('location: ../admin');
+        exit;
+    }
     require_once '../classes/dbh.class.php';
     require_once '../classes/customUrl.class.php';
     require_once '../classes/customUrlContr.class.php';

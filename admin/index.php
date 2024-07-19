@@ -14,7 +14,10 @@ require_once '../body.php';
 <label for="input" class="Input-label">:)</label>
 <?php
 require_once '../footer.php';
-if (isset($_SESSION['customShortenedUrlInvalid'])) {
+if (isset($_SESSION['lessThanMinLengthCustomUrl'])) {
+    $alert = alert('عنوان لینک خیلی کوتاه است!', 'حداقل طول عنوان کوتاه شده لینک ۳ کاراکتر است.', 'warning');
+    unset($_SESSION['lessThanMinLengthCustomUrl']);
+} elseif (isset($_SESSION['customShortenedUrlInvalid'])) {
     $alert = alert('عنوان کوتاه شده معتبر نمی‌باشد!', 'عنوان فقط می‌تواند شامل حروف a تا z و اعداد 0 تا 9 باشد.', 'warning');
     unset($_SESSION['customShortenedUrlInvalid']);
 } elseif (isset($_SESSION['customShortenedUrlExists'])) {

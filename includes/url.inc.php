@@ -10,6 +10,11 @@ if (post('shorten')) {
         header('location: ../');
         exit;
     }
+    if ($originalUrlLength < 30) {
+        $_SESSION['lessThanMinLength'] = 1;
+        header('location: ../');
+        exit;
+    }
     require_once '../classes/dbh.class.php';
     require_once '../classes/url.class.php';
     require_once '../classes/urlContr.class.php';
