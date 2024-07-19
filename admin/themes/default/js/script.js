@@ -32,11 +32,13 @@ try {
             swAlert('فیلد خالی است!', 'لطفا همه فیلدها را پر کنید.', 'warning');
             return false;
         }
-        if (originalUrl.value.length > 1000) {
+        let originalUrlLength = originalUrl.value.length,
+            customShortenedUrlLength = customShortenedUrl.value.length;
+        if (originalUrlLength > 1000) {
             swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک ۱۰۰۰ کاراکتر است.', 'warning');
             return false;
         }
-        if (customShortenedUrl.value.length > 100) {
+        if (customShortenedUrlLength > 100) {
             swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک کوتاه شده ۱۰۰ کاراکتر است.', 'warning');
             return false;
         }
