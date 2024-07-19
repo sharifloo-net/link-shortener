@@ -37,6 +37,10 @@ try {
             swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک کوتاه شده ۱۰۰ کاراکتر است.', 'warning');
             return false;
         }
+        if (!customShortenedUrl.value.match(/^[a-zA-Z0-9]{3,100}$/)) {
+            swAlert('عنوان کوتاه شده معتبر نمی‌باشد!', 'عنوان فقط می‌تواند شامل حروف a تا z و اعداد 0 تا 9 باشد.', 'warning');
+            return false;
+        }
     }
 } catch {
 }
