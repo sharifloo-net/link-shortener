@@ -4,12 +4,14 @@ require_once 'functions.inc.php';
 if (post('customUrl')) {
     $originalUrl = post('originalUrl');
     $customShortenedUrl = post('customShortenedUrl');
-    if (strlen($originalUrl) > 1000) {
+    $originalUrlLength = strlen($originalUrl);
+    $customShortenedUrlLength = strlen($customShortenedUrl);
+    if ($originalUrlLength > 1000) {
         $_SESSION['graterThanMaxLength'] = 1;
         header('location: ../admin');
         exit;
     }
-    if (strlen($customShortenedUrl) > 100) {
+    if ($customShortenedUrlLength > 100) {
         $_SESSION['graterThanMaxLengthCustomUrl'] = 1;
         header('location: ../admin');
         exit;
