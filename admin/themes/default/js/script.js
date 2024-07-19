@@ -7,7 +7,10 @@ const $ = document,
             icon: icon,
             confirmButtonText: confirm
         });
-    };
+    },
+    invalidOriginalUrlSwAlert = () => {
+        return swAlert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
+    }
 try {
     const username = select('#login__username');
     username.focus();
@@ -35,6 +38,20 @@ try {
         }
         if (customShortenedUrl.value.length > 100) {
             swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک کوتاه شده ۱۰۰ کاراکتر است.', 'warning');
+            return false;
+        }
+        try {
+            let url = originalUrl.value,
+                lowerCaseUrl = url.toLowerCase();
+            if (!lowerCaseUrl.startsWith('https://') || !lowerCaseUrl.startsWith('http://'))
+                url = `https://${url}`;
+            url = new URL(url);
+            if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+                invalidOriginalUrlSwAlert();
+                return false;
+            }
+        } catch {
+            invalidOriginalUrlSwAlert();
             return false;
         }
         if (!customShortenedUrl.value.match(/^[a-zA-Z0-9]{3,100}$/)) {
