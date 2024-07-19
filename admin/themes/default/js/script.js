@@ -42,6 +42,14 @@ try {
             swAlert('مقدار فیلد بیش از حد مجاز!', 'حداکثر طول لینک کوتاه شده ۱۰۰ کاراکتر است.', 'warning');
             return false;
         }
+        if (originalUrlLength < 30) {
+            swAlert('لینک خیلی کوتاه است!', 'حداقل طول لینک ۳۰ کاراکتر است.', 'warning');
+            return false;
+        }
+        if (customShortenedUrlLength < 3) {
+            swAlert('عنوان لینک خیلی کوتاه است!', 'حداقل طول عنوان کوتاه شده لینک ۳ کاراکتر است.', 'warning');
+            return false;
+        }
         try {
             let url = originalUrl.value,
                 lowerCaseUrl = url.toLowerCase();

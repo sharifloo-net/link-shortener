@@ -23,6 +23,10 @@ document.querySelector('#btn').onclick = () => {
         swAlert('مقدار بیش از حد مجاز!', 'حداکثر طول لینک ۱۰۰۰ کاراکتر است. ', 'warning');
         return false;
     }
+    if (inputLength < 30) {
+        swAlert('لینک خیلی کوتاه است!', 'حداقل طول لینک ۳۰ کاراکتر است.', 'warning');
+        return false;
+    }
 }
 try {
     document.querySelector('.swal2-confirm').focus();
