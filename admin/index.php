@@ -11,7 +11,6 @@ require_once '../body.php';
 <input type="text" name="originalUrl" id="originalUrlInput" class="Input-text"
        placeholder="https://github.com/sharifloo-net/link-shortener"
        spellcheck="false" autocomplete="off">
-<label for="input" class="Input-label">:)</label>
 <?php
 require_once '../footer.php';
 if (isset($_SESSION['lessThanMinLengthCustomUrl'])) {
