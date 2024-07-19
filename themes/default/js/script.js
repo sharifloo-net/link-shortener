@@ -6,6 +6,9 @@ const input = document.querySelector('#input'),
             icon: icon,
             confirmButtonText: confirm
         });
+    },
+    invalidOriginalUrlSwAlert = () => {
+        return swAlert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
     };
 
 input.focus();
@@ -25,6 +28,20 @@ document.querySelector('#btn').onclick = () => {
     }
     if (inputLength < 30) {
         swAlert('لینک خیلی کوتاه است!', 'حداقل طول لینک ۳۰ کاراکتر است.', 'warning');
+        return false;
+    }
+    try {
+        let url = input.value,
+            lowerCaseUrl = url.toLowerCase();
+        if (!lowerCaseUrl.startsWith('https://') || !lowerCaseUrl.startsWith('http://'))
+            url = `https://${url}`;
+        url = new URL(url);
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+            invalidOriginalUrlSwAlert();
+            return false;
+        }
+    } catch {
+        invalidOriginalUrlSwAlert();
         return false;
     }
 }
