@@ -8,9 +8,7 @@ const $ = document,
             confirmButtonText: confirm
         });
     },
-    invalidOriginalUrlSwAlert = () => {
-        return swAlert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
-    }
+    invalidOriginalUrlSwAlert = () => swAlert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
 try {
     const username = select('#login__username');
     username.focus();

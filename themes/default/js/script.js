@@ -7,9 +7,7 @@ const input = document.querySelector('#input'),
             confirmButtonText: confirm
         });
     },
-    invalidOriginalUrlSwAlert = () => {
-        return swAlert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
-    };
+    invalidOriginalUrlSwAlert = () => swAlert('لینک نامعتبر است!', 'لطفا یک لینک معتبر وارد کنید.', 'warning');
 
 input.focus();
 
